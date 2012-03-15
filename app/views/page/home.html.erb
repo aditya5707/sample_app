@@ -2,13 +2,33 @@
 <html>
   <head>
     <title>Ruby on Rails Tutorial Sample App | <%= @title %></title>
+    <%= csrf_meta_tag %>
+    <%= stylesheet_link_tag 'screen', :media => 'screen' %>
+    <%= stylesheet_link_tag 'print',  :media => 'print' %>
+    <%= stylesheet_link_tag 'custom', :media => 'screen' %>
   </head>
   <body>
-    <h1>Sample App</h1>
+  <div class="container">
+      <header>
+        <%= image_tag("webonise.jpg", :alt => "Sample App", :class => "round") %>
+        <nav class="round">
+          <ul>
+            <li><%= link_to "Home", '#' %></li>
+            <li><%= link_to "Help", '#' %></li>
+            <li><%= link_to "Sign in", '#' %></li>
+          </ul>
+        </nav>
+      </header>
+      <section class="round">
+        <%= yield %>
+      </section>
+    </div>  
+  <h1>Sample App</h1>
     <p>
       This is the home page for the
       <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
       sample application.
     </p>
+  <a href="#" class="signup_button round">Sign up now!</a>
   </body>
 </html>
